@@ -487,6 +487,9 @@ def fleury(p_graph, p_viz=True):
             if len(odd_degree_nodes) > 2:
                 raise TooManyOddNodes("Graph has at least 3 nodes with odd degree: " + str(odd_degree_nodes))
 
+    if len(odd_degree_nodes) == 1:
+        raise TooManyOddNodes("Graph has 1 node with odd degree, it should have 0 or 2")
+
     if p_viz:
         draw_graph_viz(p_graph, p_title="Original p_graph")
     else:
@@ -695,6 +698,9 @@ def hierholzer(p_graph, p_viz=True):
             odd_degree_nodes.append(node)
             if len(odd_degree_nodes) > 2:
                 raise TooManyOddNodes("Graph has at least 3 nodes with odd degree: " + str(odd_degree_nodes))
+
+    if len(odd_degree_nodes) == 1:
+        raise TooManyOddNodes("Graph has 1 node with odd degree, it should have 0 or 2")
 
     if p_viz:
         draw_graph_viz(p_graph, p_title="Original p_graph")
